@@ -16,15 +16,32 @@ export function Newsletter() {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulación de envío
-    setTimeout(() => {
-      setIsLoading(false)
-      setEmail("")
-      toast({
-        title: "¡Suscripción exitosa!",
-        description: "Gracias por suscribirte a nuestro newsletter.",
-      })
-    }, 1000)
+    // Número de WhatsApp
+    const phoneNumber = "5493546524360"
+
+    // Crear el mensaje con los datos del formulario
+    let message = "📧 *NUEVA SUSCRIPCIÓN AL NEWSLETTER*\n\n"
+    message += `📧 *Email:* ${email}\n\n`
+    message += "Este contacto se ha suscrito al newsletter desde la web."
+
+    // Codificar el mensaje para URL
+    const encodedMessage = encodeURIComponent(message)
+
+    // Crear la URL de WhatsApp
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+
+    // Abrir WhatsApp en una nueva ventana
+    window.open(whatsappUrl, "_blank")
+
+    // Mostrar mensaje de éxito
+    toast({
+      title: "¡Suscripción exitosa!",
+      description: "Gracias por suscribirte a nuestro newsletter.",
+    })
+
+    // Resetear el formulario
+    setEmail("")
+    setIsLoading(false)
   }
 
   return (
