@@ -1,20 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  Mail,
-  Phone,
-  MapPin,
-  Youtube,
-  Linkedin,
-  Clock,
-  CreditCard,
-  Heart,
-  ArrowUpRight,
-  Truck,
-} from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, Clock, CreditCard, Heart, ArrowUpRight, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Footer() {
@@ -90,33 +76,6 @@ export function Footer() {
                 rel="noopener noreferrer"
               >
                 <Instagram className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
-                aria-label="Twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
-                aria-label="Youtube"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Youtube className="h-5 w-5" />
-              </Link>
-              <Link
-                href="#"
-                className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-5 w-5" />
               </Link>
             </div>
           </div>
