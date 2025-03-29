@@ -172,7 +172,7 @@ export const mueblesProducts: Product[] = [
     name: "Mesa de Luz 1 Puerta 1 Cajón",
     description:
       "Mesa de luz funcional y moderna con un cajón y una puerta, ideal para el dormitorio. Fabricada en MDP de 15 mm impreso con revestimiento acrílico UV que garantiza durabilidad y resistencia. Disponible en colores blanco y chocolate, se adapta perfectamente a cualquier estilo de decoración. Sus medidas compactas (56 cm de alto, 38 cm de ancho y 37 cm de profundidad) la hacen perfecta para espacios reducidos.",
-    price: 34999,
+    price: 41175,
     discount: 15,
     category: "Muebles",
     image: "/products/mesa-luz-chocolate.jpeg",
@@ -203,7 +203,7 @@ export const mueblesProducts: Product[] = [
     name: "Placard 2 Puertas 2 Cajones",
     description:
       "Placard funcional y espacioso con dos puertas y dos cajones, perfecto para organizar tu ropa y accesorios. Fabricado en melamina de 15 mm que garantiza durabilidad y resistencia. Disponible en colores caoba, chocolate y blanco para adaptarse a cualquier estilo de decoración. Sus dimensiones (1,81 m de alto, 0,57 m de ancho y 0,46 m de profundidad) ofrecen amplio espacio de almacenamiento sin ocupar demasiado espacio en la habitación.",
-    price: 69990,
+    price: 77767,
     discount: 10,
     category: "Muebles",
     image: "/products/placard-caoba.jpeg",
