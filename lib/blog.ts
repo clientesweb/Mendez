@@ -31,9 +31,9 @@ El sofá es, sin duda, una de las piezas centrales de cualquier salón. No solo 
 
 Antes de enamorarte de un diseño específico, es fundamental medir el espacio disponible en tu salón. Un sofá demasiado grande puede hacer que la habitación se sienta abarrotada, mientras que uno demasiado pequeño puede perderse en un espacio amplio.
 
-- **Para espacios pequeños**: Opta por sofás de 2 plazas o chaise longues compactos.
-- **Para espacios medianos**: Un sofá de 3 plazas suele ser la opción ideal.
-- **Para espacios grandes**: Considera seccionales en L o U, o combina un sofá grande con sillones individuales.
+- Para espacios pequeños: Opta por sofás de 2 plazas o chaise longues compactos.
+- Para espacios medianos: Un sofá de 3 plazas suele ser la opción ideal.
+- Para espacios grandes: Considera seccionales en L o U, o combina un sofá grande con sillones individuales.
 
 Recuerda dejar al menos 45-50 cm de espacio para circular alrededor del sofá.
 
@@ -42,34 +42,34 @@ Recuerda dejar al menos 45-50 cm de espacio para circular alrededor del sofá.
 El material de tapizado no solo afecta la estética, sino también la durabilidad y el mantenimiento del sofá.
 
 ### Tela
-- **Ventajas**: Gran variedad de colores y texturas, generalmente más económica.
-- **Desventajas**: Puede mancharse más fácilmente y requiere mayor mantenimiento.
+- Ventajas: Gran variedad de colores y texturas, generalmente más económica.
+- Desventajas: Puede mancharse más fácilmente y requiere mayor mantenimiento.
 
 ### Piel
-- **Ventajas**: Elegante, duradera y fácil de limpiar.
-- **Desventajas**: Mayor costo, puede agrietarse con el tiempo si no se cuida adecuadamente.
+- Ventajas: Elegante, duradera y fácil de limpiar.
+- Desventajas: Mayor costo, puede agrietarse con el tiempo si no se cuida adecuadamente.
 
 ### Ecopiel
-- **Ventajas**: Más económica que la piel auténtica, fácil de limpiar.
-- **Desventajas**: Menos duradera, puede pelarse con el uso intensivo.
+- Ventajas: Más económica que la piel auténtica, fácil de limpiar.
+- Desventajas: Menos duradera, puede pelarse con el uso intensivo.
 
 ## Estilo y diseño
 
 El estilo del sofá debe complementar la decoración general de tu hogar:
 
-- **Clásico**: Sofás con líneas curvas, patas torneadas y detalles ornamentados.
-- **Moderno**: Líneas limpias, formas geométricas y minimalismo.
-- **Escandinavo**: Diseños simples, patas de madera a la vista y colores neutros.
-- **Industrial**: Estructuras robustas, a menudo combinando metal y cuero.
+- Clásico: Sofás con líneas curvas, patas torneadas y detalles ornamentados.
+- Moderno: Líneas limpias, formas geométricas y minimalismo.
+- Escandinavo: Diseños simples, patas de madera a la vista y colores neutros.
+- Industrial: Estructuras robustas, a menudo combinando metal y cuero.
 
 ## Comodidad y funcionalidad
 
 No sacrifiques la comodidad por la estética. Considera:
 
-- **Profundidad del asiento**: Los asientos más profundos son ideales para relajarse, mientras que los menos profundos facilitan levantarse.
-- **Altura del respaldo**: Un respaldo alto proporciona mayor soporte.
-- **Densidad de la espuma**: Afecta directamente la comodidad y durabilidad.
-- **Funcionalidades adicionales**: Sofás cama, reclinables o con almacenamiento pueden ser opciones prácticas.
+- Profundidad del asiento: Los asientos más profundos son ideales para relajarse, mientras que los menos profundos facilitan levantarse.
+- Altura del respaldo: Un respaldo alto proporciona mayor soporte.
+- Densidad de la espuma: Afecta directamente la comodidad y durabilidad.
+- Funcionalidades adicionales: Sofás cama, reclinables o con almacenamiento pueden ser opciones prácticas.
 
 ## Conclusión
 
@@ -77,11 +77,12 @@ Invertir tiempo en elegir el sofá adecuado vale la pena considerando que es una
 
 ¿Necesitas ayuda para elegir el sofá ideal? En Mendez Muebles & Hogar contamos con asesores especializados que te guiarán en tu compra. ¡Visítanos!
     `,
-    coverImage: "/blog/sofa-perfecto.jpg",
-    date: "2023-10-15",
+    coverImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sofa-cama-modelo-1-tienda-muebles-madrid.jpg-uLIDBlSNRIFq3MJ4XQiuIgUidIcBNi.jpeg",
+    date: "2025-02-15",
     author: {
-      name: "María González",
-      avatar: "/blog/authors/maria.jpg",
+      name: "Mendez Muebles & Hogar",
+      avatar: "/logo.png",
     },
     category: "Decoración",
     tags: ["sofás", "decoración", "salón", "muebles"],
@@ -89,62 +90,62 @@ Invertir tiempo en elegir el sofá adecuado vale la pena considerando que es una
   },
   {
     id: "2",
-    slug: "tendencias-en-decoracion-para-2023",
-    title: "Tendencias en decoración para 2023",
+    slug: "tendencias-en-decoracion-para-2025",
+    title: "Tendencias en decoración para 2025",
     excerpt:
       "Descubre las tendencias que dominarán la decoración de interiores este año y cómo incorporarlas a tu hogar.",
     content: `
-# Tendencias en decoración para 2023
+# Tendencias en decoración para 2025
 
-El mundo de la decoración de interiores está en constante evolución, y cada año trae consigo nuevas tendencias que reflejan cambios en nuestros estilos de vida, valores y preferencias estéticas. El 2023 no es una excepción, con tendencias que combinan sostenibilidad, funcionalidad y bienestar.
+El mundo de la decoración de interiores está en constante evolución, y cada año trae consigo nuevas tendencias que reflejan cambios en nuestros estilos de vida, valores y preferencias estéticas. El 2025 no es una excepción, con tendencias que combinan sostenibilidad, funcionalidad y bienestar.
 
 ## 1. Naturaleza en interiores
 
 La conexión con la naturaleza sigue siendo una prioridad en la decoración:
 
-- **Plantas de interior**: Desde pequeños cactus hasta grandes plantas de hoja, la vegetación es protagonista.
-- **Materiales naturales**: Madera sin tratar, piedra, ratán y fibras naturales.
-- **Colores inspirados en la naturaleza**: Verdes, terrosos y azules que evocan paisajes naturales.
+- Plantas de interior: Desde pequeños cactus hasta grandes plantas de hoja, la vegetación es protagonista.
+- Materiales naturales: Madera sin tratar, piedra, ratán y fibras naturales.
+- Colores inspirados en la naturaleza: Verdes, terrosos y azules que evocan paisajes naturales.
 
 ## 2. Sostenibilidad como prioridad
 
 La conciencia ambiental se refleja en nuestras elecciones decorativas:
 
-- **Muebles de segunda mano**: El vintage y lo restaurado gana terreno frente a lo nuevo.
-- **Materiales reciclados y reciclables**: Desde plásticos reciclados hasta textiles sostenibles.
-- **Artesanía local**: Apoyo a artesanos y productores locales.
+- Muebles de segunda mano: El vintage y lo restaurado gana terreno frente a lo nuevo.
+- Materiales reciclados y reciclables: Desde plásticos reciclados hasta textiles sostenibles.
+- Artesanía local: Apoyo a artesanos y productores locales.
 
 ## 3. Espacios multifuncionales
 
 Nuestros hogares siguen adaptándose a múltiples necesidades:
 
-- **Muebles versátiles**: Piezas que pueden transformarse o cumplir varias funciones.
-- **Zonas de trabajo integradas**: Espacios de home office que se integran armoniosamente en el hogar.
-- **Divisiones flexibles**: Paneles, estanterías y biombos que permiten reconfigurar espacios.
+- Muebles versátiles: Piezas que pueden transformarse o cumplir varias funciones.
+- Zonas de trabajo integradas: Espacios de home office que se integran armoniosamente en el hogar.
+- Divisiones flexibles: Paneles, estanterías y biombos que permiten reconfigurar espacios.
 
 ## 4. Curvas y formas orgánicas
 
 Las líneas rectas dan paso a formas más suaves:
 
-- **Sofás y sillones curvos**: Piezas que abrazan y crean sensación de confort.
-- **Mesas y espejos orgánicos**: Formas irregulares que añaden dinamismo.
-- **Arquitectura curvilínea**: Arcos y nichos que suavizan la estructura.
+- Sofás y sillones curvos: Piezas que abrazan y crean sensación de confort.
+- Mesas y espejos orgánicos: Formas irregulares que añaden dinamismo.
+- Arquitectura curvilínea: Arcos y nichos que suavizan la estructura.
 
 ## 5. Maximalismo controlado
 
 Después de años de minimalismo, vuelve la expresión personal:
 
-- **Mezcla de estampados**: Combinaciones audaces pero armoniosas.
-- **Colores vibrantes**: Tonos que expresan personalidad y energía.
-- **Objetos con historia**: Piezas que cuentan historias personales.
+- Mezcla de estampados: Combinaciones audaces pero armoniosas.
+- Colores vibrantes: Tonos que expresan personalidad y energía.
+- Objetos con historia: Piezas que cuentan historias personales.
 
 ## 6. Bienestar y confort
 
 El hogar como santuario de bienestar:
 
-- **Textiles envolventes**: Tejidos suaves y acogedores.
-- **Iluminación adaptable**: Sistemas que se ajustan a diferentes momentos del día.
-- **Espacios para el autocuidado**: Rincones dedicados a la relajación y meditación.
+- Textiles envolventes: Tejidos suaves y acogedores.
+- Iluminación adaptable: Sistemas que se ajustan a diferentes momentos del día.
+- Espacios para el autocuidado: Rincones dedicados a la relajación y meditación.
 
 ## Cómo incorporar estas tendencias
 
@@ -154,14 +155,15 @@ En Mendez Muebles & Hogar encontrarás piezas que te ayudarán a actualizar tu e
 
 ¿Qué tendencia te gustaría incorporar a tu hogar este año?
     `,
-    coverImage: "/blog/tendencias-decoracion.jpg",
-    date: "2023-09-28",
+    coverImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/00521383-d3c1bb51_ef84fd3b_240823223456_1280x720-u3B6NTeEu2LDUNcjxVD7cWc6YF1bEc.webp",
+    date: "2025-03-05",
     author: {
-      name: "Carlos Martínez",
-      avatar: "/blog/authors/carlos.jpg",
+      name: "Mendez Muebles & Hogar",
+      avatar: "/logo.png",
     },
     category: "Tendencias",
-    tags: ["decoración", "tendencias", "2023", "interiores"],
+    tags: ["decoración", "tendencias", "2025", "interiores"],
     readTime: 6,
   },
   {
@@ -179,61 +181,61 @@ Las cocinas pequeñas presentan desafíos únicos, pero con las estrategias adec
 
 Las paredes son tu mejor aliado en una cocina pequeña:
 
-- **Barras magnéticas**: Ideales para cuchillos y utensilios metálicos.
-- **Rieles con ganchos**: Perfectos para colgar tazas, cucharones y otros utensilios.
-- **Estanterías abiertas**: Aprovechan la altura y mantienen todo a la vista.
-- **Organizadores de pared**: Desde especieros hasta portarrollos de papel.
+- Barras magnéticas: Ideales para cuchillos y utensilios metálicos.
+- Rieles con ganchos: Perfectos para colgar tazas, cucharones y otros utensilios.
+- Estanterías abiertas: Aprovechan la altura y mantienen todo a la vista.
+- Organizadores de pared: Desde especieros hasta portarrollos de papel.
 
 ## Optimiza los armarios
 
 El interior de tus armarios puede albergar más de lo que crees:
 
-- **Organizadores de puerta**: Aprovechan ese espacio a menudo desaprovechado.
-- **Divisores ajustables**: Permiten adaptar el espacio a tus necesidades.
-- **Bandejas giratorias**: Facilitan el acceso a productos en esquinas.
-- **Apiladores**: Duplican el espacio de almacenamiento en estantes.
+- Organizadores de puerta: Aprovechan ese espacio a menudo desaprovechado.
+- Divisores ajustables: Permiten adaptar el espacio a tus necesidades.
+- Bandejas giratorias: Facilitan el acceso a productos en esquinas.
+- Apiladores: Duplican el espacio de almacenamiento en estantes.
 
 ## Muebles multifuncionales
 
 Cada mueble debe cumplir más de una función:
 
-- **Islas con almacenamiento**: Proporcionan superficie de trabajo y espacio de guardado.
-- **Mesas plegables**: Se pueden recoger cuando no se utilizan.
-- **Carritos auxiliares**: Aportan movilidad y almacenamiento adicional.
-- **Taburetes con espacio interior**: Asientos que también guardan objetos.
+- Islas con almacenamiento: Proporcionan superficie de trabajo y espacio de guardado.
+- Mesas plegables: Se pueden recoger cuando no se utilizan.
+- Carritos auxiliares: Aportan movilidad y almacenamiento adicional.
+- Taburetes con espacio interior: Asientos que también guardan objetos.
 
 ## Electrodomésticos a medida
 
 Elige electrodomésticos pensados para espacios reducidos:
 
-- **Versiones compactas**: Muchas marcas ofrecen líneas específicas para cocinas pequeñas.
-- **Electrodomésticos 2 en 1**: Como hornos con microondas integrado.
-- **Modelos empotrados**: Aprovechan nichos y no ocupan superficie de trabajo.
+- Versiones compactas: Muchas marcas ofrecen líneas específicas para cocinas pequeñas.
+- Electrodomésticos 2 en 1: Como hornos con microondas integrado.
+- Modelos empotrados: Aprovechan nichos y no ocupan superficie de trabajo.
 
 ## Estrategias de organización
 
 El orden es fundamental en espacios pequeños:
 
-- **Agrupar por frecuencia de uso**: Lo más utilizado debe estar más accesible.
-- **Eliminar duplicados**: ¿Realmente necesitas tres espátulas?
-- **Almacenar fuera de la cocina**: Los artículos de uso ocasional pueden guardarse en otro lugar.
-- **Contenedores transparentes**: Permiten ver el contenido sin abrir.
+- Agrupar por frecuencia de uso: Lo más utilizado debe estar más accesible.
+- Eliminar duplicados: ¿Realmente necesitas tres espátulas?
+- Almacenar fuera de la cocina: Los artículos de uso ocasional pueden guardarse en otro lugar.
+- Contenedores transparentes: Permiten ver el contenido sin abrir.
 
 ## Iluminación estratégica
 
 Una buena iluminación hace que el espacio parezca más amplio:
 
-- **Luces bajo armarios**: Iluminan las superficies de trabajo sin ocupar espacio.
-- **Iluminación en estanterías**: Destaca elementos decorativos y facilita encontrar lo que buscas.
-- **Luz natural**: Maximiza las ventanas existentes con cortinas ligeras.
+- Luces bajo armarios: Iluminan las superficies de trabajo sin ocupar espacio.
+- Iluminación en estanterías: Destaca elementos decorativos y facilita encontrar lo que buscas.
+- Luz natural: Maximiza las ventanas existentes con cortinas ligeras.
 
 ## Colores y materiales
 
 Las decisiones estéticas también influyen en la percepción del espacio:
 
-- **Colores claros**: Amplían visualmente el espacio.
-- **Superficies reflectantes**: Los acabados brillantes y espejos multiplican la luz.
-- **Continuidad visual**: Usar el mismo material en diferentes superficies crea sensación de amplitud.
+- Colores claros: Amplían visualmente el espacio.
+- Superficies reflectantes: Los acabados brillantes y espejos multiplican la luz.
+- Continuidad visual: Usar el mismo material en diferentes superficies crea sensación de amplitud.
 
 ## Conclusión
 
@@ -241,11 +243,12 @@ Una cocina pequeña no tiene por qué ser limitante. Con creatividad y las soluc
 
 En Mendez Muebles & Hogar encontrarás muebles y accesorios diseñados específicamente para optimizar cocinas de dimensiones reducidas. ¡Visítanos y descubre todas las posibilidades!
     `,
-    coverImage: "/blog/cocina-pequena.jpg",
-    date: "2023-08-10",
+    coverImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/aprovecha_cada_rincon_51765_7_600.jpg-6OzVAOajceTdnWnAqg7YwcuOwuQ3vw.jpeg",
+    date: "2025-02-28",
     author: {
-      name: "Laura Rodríguez",
-      avatar: "/blog/authors/laura.jpg",
+      name: "Mendez Muebles & Hogar",
+      avatar: "/logo.png",
     },
     category: "Organización",
     tags: ["cocina", "organización", "espacios pequeños", "almacenamiento"],
@@ -267,15 +270,15 @@ Un buen descanso es fundamental para nuestra salud física y mental, y el colch�
 Cada tipo de colchón ofrece características diferentes:
 
 ### Colchones de muelles
-- **Muelles Bonell**: Económicos y duraderos, pero transmiten el movimiento.
-- **Muelles ensacados**: Cada muelle va en una bolsa individual, ofreciendo mayor independencia de lechos.
-- **Muelles continuos**: Formados por una única pieza de alambre, proporcionan buen soporte.
+- Muelles Bonell: Económicos y duraderos, pero transmiten el movimiento.
+- Muelles ensacados: Cada muelle va en una bolsa individual, ofreciendo mayor independencia de lechos.
+- Muelles continuos: Formados por una única pieza de alambre, proporcionan buen soporte.
 
 ### Colchones de espuma
-- **Espuma tradicional**: Económicos y ligeros, pero menos duraderos.
-- **Espuma de alta densidad**: Mayor durabilidad y soporte.
-- **Viscoelástica**: Se adapta al cuerpo, aliviando puntos de presión.
-- **Látex**: Natural o sintético, ofrece gran elasticidad y es hipoalergénico.
+- Espuma tradicional: Económicos y ligeros, pero menos duraderos.
+- Espuma de alta densidad: Mayor durabilidad y soporte.
+- Viscoelástica: Se adapta al cuerpo, aliviando puntos de presión.
+- Látex: Natural o sintético, ofrece gran elasticidad y es hipoalergénico.
 
 ### Colchones híbridos
 Combinan diferentes tecnologías para aprovechar lo mejor de cada material.
@@ -284,12 +287,12 @@ Combinan diferentes tecnologías para aprovechar lo mejor de cada material.
 
 La firmeza ideal depende de varios factores:
 
-- **Peso corporal**: Personas con mayor peso suelen necesitar colchones más firmes.
-- **Posición para dormir**:
+- Peso corporal: Personas con mayor peso suelen necesitar colchones más firmes.
+- Posición para dormir:
   - Boca arriba: Firmeza media a alta.
   - De lado: Firmeza media, que permita el hundimiento de hombro y cadera.
   - Boca abajo: Firmeza alta para evitar la curvatura excesiva de la columna.
-- **Problemas de espalda**: Consulta con un especialista para recomendaciones específicas.
+- Problemas de espalda: Consulta con un especialista para recomendaciones específicas.
 
 ## Tamaño correcto
 
@@ -336,11 +339,12 @@ En Mendez Muebles & Hogar contamos con una amplia selección de colchones de las
 
 ¿Necesitas renovar tu colchón? ¡Visítanos y descubre todas las opciones disponibles!
     `,
-    coverImage: "/blog/colchon-ideal.jpg",
-    date: "2023-07-05",
+    coverImage:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/test-para-elegir-colchon.jpg-QLR2agII9RsCuNam7h3ybgW9vAMOz5.jpeg",
+    date: "2025-03-18",
     author: {
-      name: "Javier López",
-      avatar: "/blog/authors/javier.jpg",
+      name: "Mendez Muebles & Hogar",
+      avatar: "/logo.png",
     },
     category: "Descanso",
     tags: ["colchones", "descanso", "dormitorio", "sueño"],
