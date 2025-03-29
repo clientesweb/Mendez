@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { Tag, Bookmark, Calendar } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Bookmark, Calendar } from "lucide-react"
+import { BlogSearch } from "@/components/blog/blog-search"
 import { getBlogPosts } from "@/lib/blog"
 import { formatDate } from "@/lib/utils"
 
@@ -22,13 +21,7 @@ export function BlogSidebar() {
       {/* Search */}
       <div className="p-6 bg-secondary/50">
         <h3 className="font-playfair text-lg font-medium mb-4">Buscar</h3>
-        <div className="flex gap-2">
-          <Input placeholder="Buscar artículos..." className="bg-background" />
-          <Button size="icon">
-            <Tag className="h-4 w-4" />
-            <span className="sr-only">Buscar</span>
-          </Button>
-        </div>
+        <BlogSearch buttonVariant="outline" className="bg-background" />
       </div>
 
       {/* Categories */}
@@ -38,7 +31,7 @@ export function BlogSidebar() {
           {categories.map((category) => (
             <li key={category}>
               <Link
-                href={`/blog?category=${category}`}
+                href={`/blog?category=${encodeURIComponent(category)}`}
                 className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
               >
                 <span className="w-2 h-[1px] bg-primary transition-all group-hover:w-3"></span>
@@ -80,7 +73,7 @@ export function BlogSidebar() {
           {tags.map((tag) => (
             <Link
               key={tag}
-              href={`/blog?tag=${tag}`}
+              href={`/blog?tag=${encodeURIComponent(tag)}`}
               className="bg-background px-3 py-1 text-xs text-muted-foreground hover:text-primary hover:bg-background/80 transition-colors"
             >
               {tag}
