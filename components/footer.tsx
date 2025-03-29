@@ -175,7 +175,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/preguntas-frecuentes"
+                  href="/nosotros#preguntas-frecuentes"
                   className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-2 h-[1px] bg-primary transition-all group-hover:w-3"></span>
@@ -312,7 +312,7 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground">Hecho con</span>
                 <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-                <span className="text-xs text-muted-foreground">en Argentina</span>
+                <span className="text-xs text-muted-foreground">en VDD</span>
               </div>
             </div>
           </div>
