@@ -20,6 +20,9 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     }
   }
 
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const coverImage = post.coverImage.startsWith("http") ? post.coverImage : `${siteConfig.url}${post.coverImage}`
+
   return {
     title: `${post.title} | Blog | Mendez Muebles & Hogar`,
     description: post.excerpt,
@@ -32,7 +35,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       url: `${siteConfig.url}/blog/${params.slug}`,
       images: [
         {
-          url: post.coverImage,
+          url: coverImage,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -42,35 +45,6 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       publishedTime: post.date,
       authors: [post.author.name],
       tags: post.tags,
-    },
-    // Datos estructurados para artículo de blog
-    other: {
-      article: JSON.stringify({
-        "@context": "https://schema.org/",
-        "@type": "BlogPosting",
-        headline: post.title,
-        image: post.coverImage,
-        datePublished: post.date,
-        dateModified: post.date,
-        author: {
-          "@type": "Organization",
-          name: post.author.name,
-          url: siteConfig.url,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "Mendez Muebles & Hogar",
-          logo: {
-            "@type": "ImageObject",
-            url: `${siteConfig.url}/logo.png`,
-          },
-        },
-        description: post.excerpt,
-        mainEntityOfPage: {
-          "@type": "WebPage",
-          "@id": `${siteConfig.url}/blog/${params.slug}`,
-        },
-      }),
     },
   }
 }
@@ -82,6 +56,43 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  return <BlogPostPageClient params={params} post={post} />
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const coverImage = post.coverImage.startsWith("http") ? post.coverImage : `${siteConfig.url}${post.coverImage}`
+
+  // Datos estructurados para el artículo
+  const articleSchema = {
+    "@context": "https://schema.org/",
+    "@type": "BlogPosting",
+    headline: post.title,
+    image: coverImage,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: post.author.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Mendez Muebles & Hogar",
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/logo.png`,
+      },
+    },
+    description: post.excerpt,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/blog/${params.slug}`,
+    },
+  }
+
+  return (
+    <>
+      {/* Script para datos estructurados */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BlogPostPageClient params={params} post={post} />
+    </>
+  )
 }
 
