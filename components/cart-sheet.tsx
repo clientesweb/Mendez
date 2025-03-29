@@ -99,7 +99,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
                 </div>
                 <div className="flex justify-between text-muted-foreground">
                   <span>Envío</span>
-                  <span>Calculado al finalizar</span>
+                  <span>A coordinar</span>
                 </div>
               </div>
               <Separator />
