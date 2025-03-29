@@ -51,7 +51,7 @@ const categoryMap: Record<string, { title: string; description: string; image: s
     title: "Bazar",
     description:
       "Explora nuestra variedad de artículos para cocina, baño y decoración. Todo lo que necesitas para completar tu hogar.",
-    image: "/categories/bazar.jpeg",
+    image: "/categories/banner-bazar.jpeg",
     features: ["Utensilios de cocina", "Artículos de decoración", "Accesorios para el hogar", "Productos de calidad"],
   },
 }
