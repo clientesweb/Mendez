@@ -16,7 +16,7 @@ export const siteConfig = {
   authors: [{ name: "Mendez Muebles & Hogar" }],
   creator: "Mendez Muebles & Hogar",
   themeColor: "#1A202C", // Color oscuro basado en tu paleta
-  ogImage: "/og-image.jpeg", // Cambiado a ruta relativa
+  ogImage: "https://mendezmuebles.com.ar/og-image.jpeg", // Actualizado a URL absoluta
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
