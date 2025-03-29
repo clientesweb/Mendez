@@ -1,10 +1,8 @@
 import type React from "react"
-import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/components/cart-provider"
 import { ThemeProvider } from "@/components/theme-provider"
-import { siteConfig } from "@/lib/metadata"
 
 // Fuentes
 const inter = Inter({
@@ -17,60 +15,13 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+export const metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: "Mendez Muebles & Hogar",
+    template: "%s | Mendez Muebles & Hogar",
   },
-  description: siteConfig.description,
-  keywords: siteConfig.keywords,
-  authors: siteConfig.authors,
-  creator: siteConfig.creator,
-  openGraph: {
-    type: "website",
-    locale: "es_AR",
-    url: siteConfig.url,
-    title: siteConfig.name,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: "@mendezmuebles",
-  },
-  alternates: {
-    canonical: siteConfig.url,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-}
-
-export const viewport: Viewport = {
-  themeColor: siteConfig.themeColor,
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
+  description:
+    "Muebles de calidad y artículos para el hogar. Diseño, confort y los mejores precios en Villa del Dique, Córdoba.",
 }
 
 export default function RootLayout({
@@ -78,33 +29,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // Datos estructurados para SEO local
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": siteConfig.localBusiness.type,
-    name: siteConfig.localBusiness.name,
-    image: `${siteConfig.url}${siteConfig.ogImage}`,
-    "@id": `${siteConfig.url}/#organization`,
-    url: siteConfig.url,
-    telephone: siteConfig.localBusiness.telephone,
-    email: siteConfig.localBusiness.email,
-    priceRange: siteConfig.localBusiness.priceRange,
-    address: {
-      "@type": "PostalAddress",
-      ...siteConfig.localBusiness.address,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      ...siteConfig.localBusiness.geo,
-    },
-    openingHoursSpecification: siteConfig.localBusiness.openingHours.map((hours) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: hours.dayOfWeek,
-      opens: hours.opens,
-      closes: hours.closes,
-    })),
-  }
-
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
@@ -112,17 +36,8 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* Favicons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-
-        {/* Datos estructurados para SEO local */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema),
-          }}
-        />
       </head>
       <body className={`${inter.variable} ${playfair.variable}`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
