@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { TopBanner } from "@/components/top-banner"
 import { ProductGrid } from "@/components/product-grid"
@@ -6,11 +7,15 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { CategoryFilter } from "@/components/category-filter"
 import { CategoryHeader } from "@/components/category-header"
 import { products } from "@/lib/products/index"
+import { siteConfig } from "@/lib/metadata"
 
-export const metadata = {
-  title: "Tienda | Mendez Muebles & Hogar",
+export const metadata: Metadata = {
+  title: "Tienda | Explora nuestra colección completa",
   description:
     "Explora nuestra colección completa de muebles de alta calidad para tu hogar. Encuentra sofás, mesas, sillas y más.",
+  alternates: {
+    canonical: `${siteConfig.url}/tienda`,
+  },
 }
 
 export default function TiendaPage() {
