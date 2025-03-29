@@ -1,113 +1,98 @@
 import type { Metadata } from "next"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { BlogHeader } from "@/components/blog/blog-header"
-import { BlogCard } from "@/components/blog/blog-card"
-import { BlogSidebar } from "@/components/blog/blog-sidebar"
-import { getBlogPosts } from "@/lib/blog"
-import { WhatsAppButton } from "@/components/whatsapp-button"
+import { getBlogPostBySlug } from "@/lib/blog"
+import { notFound } from "next/navigation"
+import { BlogPostPageClient } from "./BlogPostPageClient"
 import { siteConfig } from "@/lib/metadata"
 
-export const metadata: Metadata = {
-  title: "Blog | Consejos y tendencias para tu hogar",
-  description:
-    "Descubre consejos, tendencias y guías sobre decoración, muebles y diseño de interiores en nuestro blog.",
-  alternates: {
-    canonical: `${siteConfig.url}/blog`,
-  },
+interface BlogPostPageProps {
+  params: {
+    slug: string
+  }
 }
 
-export default function BlogPage() {
-  const posts = getBlogPosts()
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const post = getBlogPostBySlug(params.slug)
 
-  // Featured post is the most recent one
-  const featuredPost = [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+  if (!post) {
+    return {
+      title: "Artículo no encontrado | Mendez Muebles & Hogar",
+      description: "Lo sentimos, el artículo que buscas no existe o ha sido removido.",
+    }
+  }
 
-  // Other posts excluding the featured one
-  const otherPosts = posts.filter((post) => post.id !== featuredPost.id)
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const coverImage = post.coverImage.startsWith("http") ? post.coverImage : `${siteConfig.url}${post.coverImage}`
+
+  return {
+    title: `${post.title} | Blog | Mendez Muebles & Hogar`,
+    description: post.excerpt,
+    alternates: {
+      canonical: `${siteConfig.url}/blog/${params.slug}`,
+    },
+    openGraph: {
+      title: `${post.title} | Blog | Mendez Muebles & Hogar`,
+      description: post.excerpt,
+      url: `${siteConfig.url}/blog/${params.slug}`,
+      images: [
+        {
+          url: coverImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+      type: "article",
+      publishedTime: post.date,
+      authors: [post.author.name],
+      tags: post.tags,
+    },
+  }
+}
+
+export default function BlogPostPage({ params }: BlogPostPageProps) {
+  const post = getBlogPostBySlug(params.slug)
+
+  if (!post) {
+    notFound()
+  }
+
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const coverImage = post.coverImage.startsWith("http") ? post.coverImage : `${siteConfig.url}${post.coverImage}`
+
+  // Datos estructurados para el artículo
+  const articleSchema = {
+    "@context": "https://schema.org/",
+    "@type": "BlogPosting",
+    headline: post.title,
+    image: coverImage,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Organization",
+      name: post.author.name,
+      url: siteConfig.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Mendez Muebles & Hogar",
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/logo.png`,
+      },
+    },
+    description: post.excerpt,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/blog/${params.slug}`,
+    },
+  }
 
   return (
-    <main className="min-h-screen">
-      <Header />
-
-      <section className="py-12 md:py-16">
-        <div className="container px-4">
-          <BlogHeader
-            title="Nuestro Blog"
-            description="Descubre consejos, tendencias y guías sobre decoración, muebles y diseño de interiores."
-          />
-
-          {/* Featured Post */}
-          <div className="mb-12">
-            <article className="group overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={featuredPost.coverImage || "/placeholder.svg?height=600&width=800"}
-                    alt={featuredPost.title}
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="flex flex-col justify-center">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                    <span className="bg-primary/10 text-primary px-2 py-1">{featuredPost.category}</span>
-                    <time dateTime={featuredPost.date}>
-                      {new Date(featuredPost.date).toLocaleDateString("es-ES", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </time>
-                  </div>
-
-                  <a href={`/blog/${featuredPost.slug}`} className="group-hover:text-primary transition-colors">
-                    <h2 className="font-playfair text-2xl md:text-3xl lg:text-4xl font-medium mb-4">
-                      {featuredPost.title}
-                    </h2>
-                  </a>
-
-                  <p className="text-muted-foreground mb-6">{featuredPost.excerpt}</p>
-
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                        <img
-                          src={featuredPost.author.avatar || "/placeholder.svg?height=100&width=100"}
-                          alt={featuredPost.author.name}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-                      <span className="font-medium">{featuredPost.author.name}</span>
-                    </div>
-
-                    <span className="text-muted-foreground text-sm">{featuredPost.readTime} min de lectura</span>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          {/* All Posts */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-            <div className="lg:col-span-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {otherPosts.map((post) => (
-                  <BlogCard key={post.id} post={post} />
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-1">
-              <BlogSidebar />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <Footer />
-      <WhatsAppButton />
-    </main>
+    <>
+      {/* Script para datos estructurados */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <BlogPostPageClient params={params} post={post} />
+    </>
   )
 }
 
