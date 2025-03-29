@@ -83,7 +83,10 @@ export default function CheckoutPage() {
     }
   }
 
-  const shipping = 1500 // Costo de envío fijo
+  // Eliminar o comentar esta línea:
+  // const shipping = 1500 // Costo de envío fijo
+  // Y reemplazarla por:
+  const shipping = 0 // El envío se coordinará directamente
   const total = subtotal + shipping
 
   return (
@@ -267,7 +270,7 @@ export default function CheckoutPage() {
                       </div>
                       <div className="flex justify-between">
                         <span>Envío</span>
-                        <span>{formatPrice(shipping)}</span>
+                        <span>A coordinar</span>
                       </div>
                       <Separator />
                       <div className="flex justify-between font-bold">
@@ -320,7 +323,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="flex justify-between">
                     <span>Envío</span>
-                    <span>{formatPrice(shipping)}</span>
+                    <span>A coordinar</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-bold text-lg">
