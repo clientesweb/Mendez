@@ -1,6 +1,4 @@
-import { Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { BlogSearch } from "@/components/blog/blog-search"
 
 interface BlogHeaderProps {
   title: string
@@ -17,13 +15,7 @@ export function BlogHeader({ title, description }: BlogHeaderProps) {
         </div>
 
         <div className="w-full md:w-auto">
-          <form className="flex gap-2 max-w-md">
-            <Input type="search" placeholder="Buscar artículos..." className="w-full md:w-[200px] lg:w-[300px]" />
-            <Button type="submit" size="icon">
-              <Search className="h-4 w-4" />
-              <span className="sr-only">Buscar</span>
-            </Button>
-          </form>
+          <BlogSearch className="max-w-md" />
         </div>
       </div>
 
