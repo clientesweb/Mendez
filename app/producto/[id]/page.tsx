@@ -13,8 +13,13 @@ import { ProductGallery } from "@/components/product-gallery"
 import { RelatedProducts } from "@/components/related-products"
 import { getProductById, getRelatedProducts } from "@/lib/products/index"
 import { formatPrice } from "@/lib/utils"
+import { siteConfig } from "@/lib/metadata"
 
-// Eliminamos completamente la función generateMetadata para simplificar
+// Metadatos estáticos para la página de producto
+export const metadata = {
+  title: "Detalles del Producto",
+  description: "Descubre todos los detalles de nuestros productos de alta calidad para tu hogar.",
+}
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   const product = getProductById(params.id)
@@ -24,13 +29,47 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   }
 
   const discountedPrice = product.price - (product.price * product.discount) / 100
+
+  // Generar imágenes para la galería
   const productImages = product.gallery || [product.image]
+
+  // Encontrar productos relacionados de la misma categoría
   const relatedProducts = getRelatedProducts(params.id, 4)
+
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const productImage = product.image.startsWith("http") ? product.image : `${siteConfig.url}${product.image}`
+
+  // Datos estructurados para el producto
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.name,
+    image: productImage,
+    description: product.description,
+    brand: {
+      "@type": "Brand",
+      name: "Mendez Muebles & Hogar",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `${siteConfig.url}/producto/${params.id}`,
+      priceCurrency: "ARS",
+      price: discountedPrice,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "Mendez Muebles & Hogar",
+      },
+    },
+  }
 
   return (
     <main className="min-h-screen">
       <TopBanner />
       <Header />
+
+      {/* Script para datos estructurados */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
 
       <div className="container px-4 py-8">
         <Link href="/tienda" className="inline-flex items-center text-muted-foreground hover:text-black mb-6">
