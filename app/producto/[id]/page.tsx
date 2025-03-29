@@ -32,6 +32,9 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     }
   }
 
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const productImage = product.image.startsWith("http") ? product.image : `${siteConfig.url}${product.image}`
+
   return {
     title: `${product.name} | Mendez Muebles & Hogar`,
     description: product.description.substring(0, 160),
@@ -44,38 +47,13 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       url: `${siteConfig.url}/producto/${params.id}`,
       images: [
         {
-          url: `${siteConfig.url}${product.image}`,
+          url: productImage,
           width: 1200,
           height: 630,
           alt: product.name,
         },
       ],
       type: "product",
-    },
-    // Datos estructurados para producto
-    other: {
-      product: JSON.stringify({
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        name: product.name,
-        image: `${siteConfig.url}${product.image}`,
-        description: product.description,
-        brand: {
-          "@type": "Brand",
-          name: "Mendez Muebles & Hogar",
-        },
-        offers: {
-          "@type": "Offer",
-          url: `${siteConfig.url}/producto/${params.id}`,
-          priceCurrency: "ARS",
-          price: product.price - (product.price * product.discount) / 100,
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "Mendez Muebles & Hogar",
-          },
-        },
-      }),
     },
   }
 }
@@ -95,10 +73,40 @@ export default function ProductPage({ params }: ProductPageProps) {
   // Encontrar productos relacionados de la misma categoría
   const relatedProducts = getRelatedProducts(params.id, 4)
 
+  // Asegurarse de que la URL de la imagen sea absoluta
+  const productImage = product.image.startsWith("http") ? product.image : `${siteConfig.url}${product.image}`
+
+  // Datos estructurados para el producto
+  const productSchema = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.name,
+    image: productImage,
+    description: product.description,
+    brand: {
+      "@type": "Brand",
+      name: "Mendez Muebles & Hogar",
+    },
+    offers: {
+      "@type": "Offer",
+      url: `${siteConfig.url}/producto/${params.id}`,
+      priceCurrency: "ARS",
+      price: discountedPrice,
+      availability: "https://schema.org/InStock",
+      seller: {
+        "@type": "Organization",
+        name: "Mendez Muebles & Hogar",
+      },
+    },
+  }
+
   return (
     <main className="min-h-screen">
       <TopBanner />
       <Header />
+
+      {/* Script para datos estructurados */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
 
       <div className="container px-4 py-8">
         <Link href="/tienda" className="inline-flex items-center text-muted-foreground hover:text-black mb-6">
