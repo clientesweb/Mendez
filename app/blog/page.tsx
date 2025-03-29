@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BlogHeader } from "@/components/blog/blog-header"
@@ -5,11 +6,15 @@ import { BlogCard } from "@/components/blog/blog-card"
 import { BlogSidebar } from "@/components/blog/blog-sidebar"
 import { getBlogPosts } from "@/lib/blog"
 import { WhatsAppButton } from "@/components/whatsapp-button"
+import { siteConfig } from "@/lib/metadata"
 
-export const metadata = {
-  title: "Blog | Mendez Muebles & Hogar",
+export const metadata: Metadata = {
+  title: "Blog | Consejos y tendencias para tu hogar",
   description:
     "Descubre consejos, tendencias y guías sobre decoración, muebles y diseño de interiores en nuestro blog.",
+  alternates: {
+    canonical: `${siteConfig.url}/blog`,
+  },
 }
 
 export default function BlogPage() {
