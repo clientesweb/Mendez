@@ -64,10 +64,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  // Datos estructurados para SEO local
-  other: {
-    "google-site-verification": "TU_CÓDIGO_DE_VERIFICACIÓN_DE_GOOGLE", // Reemplazar con tu código
-  },
 }
 
 export const viewport: Viewport = {
@@ -82,6 +78,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Datos estructurados para SEO local
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": siteConfig.localBusiness.type,
+    name: siteConfig.localBusiness.name,
+    image: `${siteConfig.url}${siteConfig.ogImage}`,
+    "@id": `${siteConfig.url}/#organization`,
+    url: siteConfig.url,
+    telephone: siteConfig.localBusiness.telephone,
+    email: siteConfig.localBusiness.email,
+    priceRange: siteConfig.localBusiness.priceRange,
+    address: {
+      "@type": "PostalAddress",
+      ...siteConfig.localBusiness.address,
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      ...siteConfig.localBusiness.geo,
+    },
+    openingHoursSpecification: siteConfig.localBusiness.openingHours.map((hours) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: hours.dayOfWeek,
+      opens: hours.opens,
+      closes: hours.closes,
+    })),
+  }
+
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
@@ -97,31 +120,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": siteConfig.localBusiness.type,
-              name: siteConfig.localBusiness.name,
-              image: siteConfig.ogImage,
-              "@id": `${siteConfig.url}/#organization`,
-              url: siteConfig.url,
-              telephone: siteConfig.localBusiness.telephone,
-              email: siteConfig.localBusiness.email,
-              priceRange: siteConfig.localBusiness.priceRange,
-              address: {
-                "@type": "PostalAddress",
-                ...siteConfig.localBusiness.address,
-              },
-              geo: {
-                "@type": "GeoCoordinates",
-                ...siteConfig.localBusiness.geo,
-              },
-              openingHoursSpecification: siteConfig.localBusiness.openingHours.map((hours) => ({
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: hours.dayOfWeek,
-                opens: hours.opens,
-                closes: hours.closes,
-              })),
-            }),
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
       </head>
