@@ -2,10 +2,121 @@ import type { Product } from "@/lib/types"
 
 export const mueblesProducts: Product[] = [
   {
+    id: "mueble-organizador-planchado",
+    name: "Mueble Organizador De Planchado Mosconi Blanco",
+    description:
+      "Práctico mueble organizador de planchado con superficie de planchar acolchada color verde. Fabricado en melamina sobre MDP de 15 mm en color blanco, cuenta con 2 puertas con bisagras a resorte y 1 estante interior para almacenar productos de limpieza y planchado. Incluye soporte para plancha y posee ruedas para facilitar su traslado, lo que lo convierte en una solución funcional y móvil para optimizar el espacio en tu hogar.",
+    price: 116470,
+    discount: 15,
+    category: "Muebles",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_965191-MLA71413428959_082023-O-4LtZEWI6ShZAgjrpdKLZIvhw3uQcKs.webp",
+    featured: true,
+    specifications: {
+      Fabricante: "Mosconi",
+      Medidas: "111x36x88 cm",
+      Color: "Blanco",
+      Material: "Melamina sobre MDP 15 mm",
+      Características: "2 puertas con bisagras a resorte y 1 estante",
+      Adicionales: "Soporte para plancha, Manijas plásticas color gris, Ruedas para traslado",
+    },
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_965191-MLA71413428959_082023-O-4LtZEWI6ShZAgjrpdKLZIvhw3uQcKs.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_815133-MLA71369617322_082023-O-otPbKqtiwY7j95p6c2E8UgHL4KfScz.webp",
+    ],
+  },
+  {
+    id: "comoda-4-cajones-1-puerta",
+    name: "Cómoda 4 Cajones/1 Puerta Express",
+    description:
+      "Cómoda multifuncional con 4 cajones y 1 puerta, ideal para dormitorios infantiles o juveniles. Fabricada en MDP de 15 mm con terminación UV en color blanco. Los cajones cuentan con correderas plásticas y manijas en colores blanco, rosa y azul que le dan un toque alegre y moderno. La puerta incluye un estante de altura regulable para mayor versatilidad de almacenamiento. Su diseño compacto y funcional optimiza el espacio en cualquier habitación.",
+    price: 140000,
+    discount: 15,
+    category: "Muebles",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_863850-MLA53141542952_012023-O-62oD7JDNp5Bbm4mvYXOObrlVZkW3mi.webp",
+    featured: true,
+    specifications: {
+      Fabricante: "Mosconi",
+      Medidas: "101x48x102 cm",
+      Color: "Blanco",
+      Material: "MDP 15 mm pintado con terminación UV",
+      Cajones: "4 con correderas plásticas",
+      "Profundidad del cajón": "42 cm",
+      Puerta: "1 con estante de altura regulable",
+      Manijas: "Plásticas color blanco, rosa y azul",
+    },
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_863850-MLA53141542952_012023-O-62oD7JDNp5Bbm4mvYXOObrlVZkW3mi.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_913567-MLA53141542953_012023-O-XwaNalyLVPaNAwrwozJ3wgKe4PaVLy.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_871584-MLA53141542955_012023-O-Byik4D5qlQesefE3sCIyrRceLXoB65.webp",
+    ],
+  },
+  {
+    id: "chifonier-5-cajones-chocolate",
+    name: "Chifonier 5 Cajones Pack Color Chocolate",
+    description:
+      "Chifonier de 5 cajones con diseño funcional y elegante en color chocolate. Fabricado en MDP de 15 mm con revestimiento acrílico UV que garantiza mayor durabilidad y resistencia. Sus 5 cajones con correderas plásticas y manijas color gris plata ofrecen amplio espacio de almacenamiento para ropa y accesorios. Con una carga máxima admisible de 50 kg, este mueble combina practicidad y estética para complementar cualquier dormitorio.",
+    price: 76470,
+    discount: 15,
+    category: "Muebles",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_724547-MLA82350528671_022025-O-iHydAFsvwLr5tQJiLubV2BNCTPcffg.webp",
+    featured: false,
+    specifications: {
+      "Material Principal": "MDP 15 mm impreso",
+      Revestimiento: "Acrílico UV",
+      Fondo: "MDF 3 mm",
+      Cajones: "5 con peso admisible de 5 kg cada uno",
+      Correderas: "Plásticas",
+      Manijas: "Plásticas Gris Plata",
+      "Carga Máxima Admisible": "50 kg",
+      Largo: "91 cm",
+      Ancho: "58 cm",
+      Profundidad: "38 cm",
+      "Colores disponibles": "Chocolate, Caoba, Tissa(Venezia), Mendra, Grei(Nebraska Gris), Blanco, Bambu",
+    },
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_724547-MLA82350528671_022025-O-iHydAFsvwLr5tQJiLubV2BNCTPcffg.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_770787-MLA82068221932_022025-O-8HqXFcY3OIK0BWW0QRxSDrMROJqMcu.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_941673-MLA82350413031_022025-O-cYL8RVNydPX25kaIyjD70iB2Vgelg4.webp",
+    ],
+  },
+  {
+    id: "placard-6-puertas-2-cajones",
+    name: "Ropero Placard 6 Puertas 2 Cajones Dakar Zero Melamina",
+    description:
+      "Amplio placard de 6 puertas y 2 cajones, perfecto para maximizar el espacio de almacenamiento en tu dormitorio. Fabricado en melamina sobre MDP de 15 mm, disponible en diversos acabados como Carvalho Mezzo frente Blanco, Wengue, Blanco, Tabaco y Venezia. Cuenta con un espacio interior de colgado con barral plástico, 3 estantes fijos y 1 regulable para organizar tu ropa de manera eficiente. Los cajones incluyen correderas metálicas para un deslizamiento suave y mayor durabilidad.",
+    price: 258823,
+    discount: 15,
+    category: "Muebles",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_888783-MLA49010106997_022022-O-VoP1DHzM7t2bOhH9bByfJ7qrQlt3qc.webp",
+    featured: true,
+    specifications: {
+      Marca: "Mosconi",
+      Modelo: "PLACARD 26 DAKAR ZERO",
+      Medidas: "169x46x181 cm",
+      Material: "Melamina sobre MDP 15 mm",
+      Puertas: "6",
+      Cajones: "2 con correderas metálicas",
+      "Espacio interior": "Barral plástico para colgado, 3 estantes fijos y 1 regulable",
+      "Interior y fondo": "Sin pintar",
+      Manijas: "Plásticas color gris",
+      "Peso máximo por cajón": "5 kg",
+      "Medidas interior del cajón": "34x49x11 cm",
+      "Colores disponibles": "Carvalho Mezzo frente Blanco, Wengue, Blanco, Tabaco, Venezia",
+    },
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_888783-MLA49010106997_022022-O-VoP1DHzM7t2bOhH9bByfJ7qrQlt3qc.webp",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/D_NQ_NP_796826-MLA49010106991_022022-O-62fVJL4gAmaLD3Hgfj2JiT28OlJsKi.webp",
+    ],
+  },
+  {
     id: "mueble-apoyo-cocina",
     name: "Mueble Apoyo Cocina Con Ruedas Frutero P/ Microondas",
     description:
-      "Mueble multifuncional para cocina con ruedas, ideal para optimizar el espacio en tu hogar. Cuenta con un cajón superior para utensilios, tres bandejas extraíbles plásticas para frutas o verduras, y un compartimento con puerta y estante para almacenamiento adicional. Su superficie superior es perfecta para colocar un microondas u otros electrodomésticos. Las ruedas facilitan su movilidad, permitiéndote ubicarlo donde más lo necesites.",
+      "Práctico mueble multifuncional para cocina con ruedas, ideal para optimizar el espacio en tu hogar. Cuenta con un cajón superior para utensilios, tres bandejas extraíbles plásticas para frutas o verduras, y un compartimento con puerta y estante para almacenamiento adicional. Su superficie superior es perfecta para colocar un microondas u otros electrodomésticos. Las ruedas facilitan su movilidad, permitiéndote ubicarlo donde más lo necesites.",
     price: 85000,
     discount: 0,
     category: "Muebles",
