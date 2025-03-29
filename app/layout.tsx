@@ -16,6 +16,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 })
 
+// Actualizar la configuración de OpenGraph para usar la URL absoluta de la imagen OG
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
