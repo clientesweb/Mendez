@@ -74,16 +74,20 @@ export function Footer() {
             </p>
             <div className="flex gap-4 lg:justify-end">
               <Link
-                href="#"
+                href="https://www.facebook.com/61569356552808/?locale=fr_CA"
                 className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook className="h-5 w-5" />
               </Link>
               <Link
-                href="#"
+                href="https://www.instagram.com/mendezmuebleshogar?igsh=MXQyeWFkNTQ5eHlnMw=="
                 className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram className="h-5 w-5" />
               </Link>
@@ -91,6 +95,8 @@ export function Footer() {
                 href="#"
                 className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
                 aria-label="Twitter"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Twitter className="h-5 w-5" />
               </Link>
@@ -98,6 +104,8 @@ export function Footer() {
                 href="#"
                 className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
                 aria-label="Youtube"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Youtube className="h-5 w-5" />
               </Link>
@@ -105,6 +113,8 @@ export function Footer() {
                 href="#"
                 className="bg-primary text-primary-foreground hover:bg-primary/80 rounded-full p-3 transition-colors"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Linkedin className="h-5 w-5" />
               </Link>
@@ -312,7 +322,7 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 <span className="text-xs text-muted-foreground">Hecho con</span>
                 <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-                <span className="text-xs text-muted-foreground">en VDD</span>
+                <span className="text-xs text-muted-foreground">en Argentina</span>
               </div>
             </div>
           </div>
