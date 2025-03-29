@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { Header } from "@/components/header"
 import { TopBanner } from "@/components/top-banner"
 import { ProductGrid } from "@/components/product-grid"
@@ -7,6 +8,7 @@ import { CategoryFilter } from "@/components/category-filter"
 import { CategoryHeader } from "@/components/category-header"
 import { getProductsByCategory } from "@/lib/products/index"
 import { notFound } from "next/navigation"
+import { siteConfig } from "@/lib/metadata"
 
 // Mapeo de categorías para URLs y títulos
 const categoryMap: Record<string, { title: string; description: string; image: string; features: string[] }> = {
@@ -55,7 +57,7 @@ const categoryMap: Record<string, { title: string; description: string; image: s
   },
 }
 
-export function generateMetadata({ params }: { params: { category: string } }) {
+export function generateMetadata({ params }: { params: { category: string } }): Metadata {
   const categoryInfo = categoryMap[params.category]
 
   if (!categoryInfo) {
@@ -68,6 +70,22 @@ export function generateMetadata({ params }: { params: { category: string } }) {
   return {
     title: `${categoryInfo.title} | Mendez Muebles & Hogar`,
     description: categoryInfo.description,
+    alternates: {
+      canonical: `${siteConfig.url}/categorias/${params.category}`,
+    },
+    openGraph: {
+      title: `${categoryInfo.title} | Mendez Muebles & Hogar`,
+      description: categoryInfo.description,
+      url: `${siteConfig.url}/categorias/${params.category}`,
+      images: [
+        {
+          url: `${siteConfig.url}${categoryInfo.image}`,
+          width: 1200,
+          height: 630,
+          alt: categoryInfo.title,
+        },
+      ],
+    },
   }
 }
 
