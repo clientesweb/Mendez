@@ -248,7 +248,7 @@ export default function NosotrosClientPage() {
           </div>
 
           {/* Sección de FAQs */}
-          <div className="mb-16">
+          <div className="mb-16" id="preguntas-frecuentes">
             <h2 className="font-playfair text-2xl md:text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
 
             <div className="max-w-3xl mx-auto">
