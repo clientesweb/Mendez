@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { CategoryFilter } from "@/components/category-filter"
 import { CategoryHeader } from "@/components/category-header"
+import { ProductSort } from "@/components/product-sort"
 import { getProductsByCategory } from "@/lib/products/index"
 import { notFound } from "next/navigation"
 
@@ -61,14 +62,57 @@ export const metadata = {
   description: "Explora nuestra selección de productos por categoría. Encuentra lo que necesitas para tu hogar.",
 }
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
+export default function CategoryPage({
+  params,
+  searchParams,
+}: {
+  params: { category: string }
+  searchParams: { [key: string]: string | string[] | undefined }
+}) {
   const categoryInfo = categoryMap[params.category]
 
   if (!categoryInfo) {
     notFound()
   }
 
-  const products = getProductsByCategory(categoryInfo.title)
+  // Get products for this category
+  const categoryProducts = getProductsByCategory(categoryInfo.title)
+
+  // Get sort parameter
+  const sort = typeof searchParams.sort === "string" ? searchParams.sort : "featured"
+
+  // Sort products based on the sort parameter
+  let sortedProducts = [...categoryProducts]
+
+  switch (sort) {
+    case "price-asc":
+      sortedProducts.sort((a, b) => {
+        const priceA = a.price - (a.price * a.discount) / 100
+        const priceB = b.price - (b.price * b.discount) / 100
+        return priceA - priceB
+      })
+      break
+    case "price-desc":
+      sortedProducts.sort((a, b) => {
+        const priceA = a.price - (a.price * a.discount) / 100
+        const priceB = b.price - (b.price * b.discount) / 100
+        return priceB - priceA
+      })
+      break
+    case "name-asc":
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name))
+      break
+    case "name-desc":
+      sortedProducts.sort((a, b) => b.name.localeCompare(a.name))
+      break
+    default:
+      // For 'featured', we keep the original order which should have featured items first
+      sortedProducts = sortedProducts.sort((a, b) => {
+        if (a.featured && !b.featured) return -1
+        if (!a.featured && b.featured) return 1
+        return 0
+      })
+  }
 
   return (
     <main className="min-h-screen">
@@ -101,22 +145,14 @@ export default function CategoryPage({ params }: { params: { category: string } 
             <div className="flex justify-between items-center mb-6">
               <div>
                 <h2 className="text-lg font-medium">{categoryInfo.title}</h2>
-                <p className="text-muted-foreground text-sm">{products.length} productos encontrados</p>
+                <p className="text-muted-foreground text-sm">{sortedProducts.length} productos encontrados</p>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-muted-foreground">Ordenar por:</span>
-                <select className="text-sm border rounded-md px-2 py-1">
-                  <option>Destacados</option>
-                  <option>Precio: Menor a mayor</option>
-                  <option>Precio: Mayor a menor</option>
-                  <option>Más recientes</option>
-                </select>
-              </div>
+              <ProductSort />
             </div>
           </div>
 
-          {products.length > 0 ? (
-            <ProductGrid products={products} />
+          {sortedProducts.length > 0 ? (
+            <ProductGrid products={sortedProducts} />
           ) : (
             <div className="text-center py-16">
               <p className="text-muted-foreground">No hay productos disponibles en esta categoría actualmente.</p>
