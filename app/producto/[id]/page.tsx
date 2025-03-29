@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ChevronLeft, Truck, ShieldCheck, RotateCcw } from "lucide-react"
@@ -13,6 +14,7 @@ import { ProductGallery } from "@/components/product-gallery"
 import { RelatedProducts } from "@/components/related-products"
 import { getProductById, getRelatedProducts } from "@/lib/products/index"
 import { formatPrice } from "@/lib/utils"
+import { siteConfig } from "@/lib/metadata"
 
 interface ProductPageProps {
   params: {
@@ -20,7 +22,7 @@ interface ProductPageProps {
   }
 }
 
-export function generateMetadata({ params }: ProductPageProps) {
+export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const product = getProductById(params.id)
 
   if (!product) {
@@ -32,7 +34,49 @@ export function generateMetadata({ params }: ProductPageProps) {
 
   return {
     title: `${product.name} | Mendez Muebles & Hogar`,
-    description: product.description,
+    description: product.description.substring(0, 160),
+    alternates: {
+      canonical: `${siteConfig.url}/producto/${params.id}`,
+    },
+    openGraph: {
+      title: `${product.name} | Mendez Muebles & Hogar`,
+      description: product.description.substring(0, 160),
+      url: `${siteConfig.url}/producto/${params.id}`,
+      images: [
+        {
+          url: `${siteConfig.url}${product.image}`,
+          width: 1200,
+          height: 630,
+          alt: product.name,
+        },
+      ],
+      type: "product",
+    },
+    // Datos estructurados para producto
+    other: {
+      product: JSON.stringify({
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        name: product.name,
+        image: `${siteConfig.url}${product.image}`,
+        description: product.description,
+        brand: {
+          "@type": "Brand",
+          name: "Mendez Muebles & Hogar",
+        },
+        offers: {
+          "@type": "Offer",
+          url: `${siteConfig.url}/producto/${params.id}`,
+          priceCurrency: "ARS",
+          price: product.price - (product.price * product.discount) / 100,
+          availability: "https://schema.org/InStock",
+          seller: {
+            "@type": "Organization",
+            name: "Mendez Muebles & Hogar",
+          },
+        },
+      }),
+    },
   }
 }
 
