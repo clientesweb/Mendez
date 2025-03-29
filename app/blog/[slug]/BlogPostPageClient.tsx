@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, Tag, ChevronLeft, Facebook, Twitter, Linkedin, Mail, Share2 } from "lucide-react"
@@ -32,7 +32,7 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
   const relatedPosts = getRelatedPosts(params.slug, 2)
 
   // Función para formatear el contenido del blog
-  const formatContent = (content: string) => {
+  const formatContent = useCallback((content: string) => {
     // Dividir el contenido en párrafos
     const paragraphs = content.split("\n\n")
 
@@ -69,7 +69,7 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
             <ul className="list-disc pl-6 space-y-1">
               {listItems.map((item, i) => (
                 <li key={i} className="mb-1">
-                  {item}
+                  {item.trim()}
                 </li>
               ))}
             </ul>
@@ -84,7 +84,7 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
         </p>
       )
     })
-  }
+  }, [])
 
   // Compartir en redes sociales
   const shareUrl = typeof window !== "undefined" ? window.location.href : ""
@@ -114,6 +114,23 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
       "_blank",
     )
   }
+
+  // Cerrar el menú de compartir cuando se hace clic fuera
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (showShareButtons) {
+        setShowShareButtons(false)
+      }
+    },
+    [showShareButtons],
+  )
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [handleClickOutside])
 
   return (
     <main className="min-h-screen">
@@ -153,16 +170,13 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
                     <div className="flex items-center justify-between mb-8">
                       <div className="flex items-center gap-3">
                         <div className="relative w-12 h-12 rounded-full overflow-hidden bg-primary/10 flex items-center justify-center">
-                          {post.author.avatar ? (
-                            <Image
-                              src={post.author.avatar || "/placeholder.svg?height=100&width=100"}
-                              alt={post.author.name}
-                              fill
-                              className="object-cover"
-                            />
-                          ) : (
-                            <span className="text-primary font-bold">{post.author.name.charAt(0)}</span>
-                          )}
+                          <Image
+                            src={post.author.avatar || "/placeholder.svg?height=100&width=100"}
+                            alt={post.author.name}
+                            width={48}
+                            height={48}
+                            className="object-contain"
+                          />
                         </div>
                         <span className="font-medium">{post.author.name}</span>
                       </div>
@@ -172,7 +186,10 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
                           variant="outline"
                           size="sm"
                           className="flex items-center gap-2"
-                          onClick={() => setShowShareButtons(!showShareButtons)}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowShareButtons(!showShareButtons)
+                          }}
                         >
                           <Share2 className="h-4 w-4" />
                           Compartir
@@ -229,7 +246,7 @@ export function BlogPostPageClient({ params, post }: BlogPostPageClientProps) {
                 </div>
 
                 {/* Article Content */}
-                <div className="mb-8 leading-relaxed">{formatContent(post.content)}</div>
+                <div className="mb-8 leading-relaxed article-content">{formatContent(post.content)}</div>
 
                 {/* Article Footer */}
                 <div className="mt-12 pt-6 border-t non-prose">
