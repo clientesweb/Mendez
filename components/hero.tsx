@@ -44,8 +44,18 @@ const heroProducts = [
   },
 ]
 
+// Agregar esta constante con los IDs de los productos del hero
+export const heroProductIds = ["placard-3-puertas-2-cajones", "despensero-2-puertas", "estufa-garrafera-torpedo-950"]
+
+// Modificar la función para que devuelva los productos del hero
 export function getTopDiscountedProducts(count: number): Product[] {
-  return heroProducts.slice(0, count)
+  // Devolvemos los productos del hero convertidos al tipo Product
+  return heroProducts as unknown as Product[]
+}
+
+// Agregar esta función para obtener los IDs de los productos del hero
+export function getHeroProductIds(): string[] {
+  return heroProductIds
 }
 
 export function Hero() {
