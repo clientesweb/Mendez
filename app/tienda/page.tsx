@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { CategoryFilter } from "@/components/category-filter"
 import { CategoryHeader } from "@/components/category-header"
-import { ProductSort } from "@/components/product-sort"
+import { ShopFilters } from "@/components/shop-filters"
 import { products } from "@/lib/products/index"
 import { siteConfig } from "@/lib/metadata"
 
@@ -27,33 +27,64 @@ export default function TiendaPage({
   // Get sort parameter
   const sort = typeof searchParams.sort === "string" ? searchParams.sort : "featured"
 
-  // Sort products based on the sort parameter
-  let sortedProducts = [...products]
+  // Get price range parameters
+  const minPrice = typeof searchParams.minPrice === "string" ? Number.parseInt(searchParams.minPrice) : undefined
+  const maxPrice = typeof searchParams.maxPrice === "string" ? Number.parseInt(searchParams.maxPrice) : undefined
 
+  // Get discount filter
+  const onlyDiscounted = searchParams.discount === "true"
+
+  // Filter products based on parameters
+  let filteredProducts = [...products]
+
+  // Apply price range filter
+  if (minPrice !== undefined) {
+    filteredProducts = filteredProducts.filter((product) => {
+      const discountedPrice = product.price - (product.price * product.discount) / 100
+      return discountedPrice >= minPrice
+    })
+  }
+
+  if (maxPrice !== undefined) {
+    filteredProducts = filteredProducts.filter((product) => {
+      const discountedPrice = product.price - (product.price * product.discount) / 100
+      return discountedPrice <= maxPrice
+    })
+  }
+
+  // Apply discount filter
+  if (onlyDiscounted) {
+    filteredProducts = filteredProducts.filter((product) => product.discount > 0)
+  }
+
+  // Sort products based on the sort parameter
   switch (sort) {
     case "price-asc":
-      sortedProducts.sort((a, b) => {
+      filteredProducts.sort((a, b) => {
         const priceA = a.price - (a.price * a.discount) / 100
         const priceB = b.price - (b.price * b.discount) / 100
         return priceA - priceB
       })
       break
     case "price-desc":
-      sortedProducts.sort((a, b) => {
+      filteredProducts.sort((a, b) => {
         const priceA = a.price - (a.price * a.discount) / 100
         const priceB = b.price - (b.price * b.discount) / 100
         return priceB - priceA
       })
       break
     case "name-asc":
-      sortedProducts.sort((a, b) => a.name.localeCompare(b.name))
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name))
       break
     case "name-desc":
-      sortedProducts.sort((a, b) => b.name.localeCompare(a.name))
+      filteredProducts.sort((a, b) => b.name.localeCompare(a.name))
+      break
+    case "discount":
+      filteredProducts.sort((a, b) => b.discount - a.discount)
       break
     default:
       // For 'featured', we keep the original order which should have featured items first
-      sortedProducts = sortedProducts.sort((a, b) => {
+      filteredProducts = filteredProducts.sort((a, b) => {
         if (a.featured && !b.featured) return -1
         if (!a.featured && b.featured) return 1
         return 0
@@ -75,17 +106,32 @@ export default function TiendaPage({
 
           <CategoryFilter activeCategory="todos" />
 
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-6">
-              <div>
-                <h2 className="text-lg font-medium">Todos los productos</h2>
-                <p className="text-muted-foreground text-sm">{sortedProducts.length} productos encontrados</p>
-              </div>
-              <ProductSort />
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Sidebar con filtros */}
+            <div className="lg:col-span-1">
+              <ShopFilters
+                productCount={filteredProducts.length}
+                minPrice={minPrice}
+                maxPrice={maxPrice}
+                onlyDiscounted={onlyDiscounted}
+                sortOrder={sort}
+              />
+            </div>
+
+            {/* Productos */}
+            <div className="lg:col-span-3">
+              {filteredProducts.length > 0 ? (
+                <ProductGrid products={filteredProducts} />
+              ) : (
+                <div className="text-center py-16 bg-secondary/30 rounded-lg">
+                  <h3 className="text-xl font-medium mb-2">No se encontraron productos</h3>
+                  <p className="text-muted-foreground">
+                    No hay productos que coincidan con los filtros seleccionados. Intenta con otros criterios.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
-
-          <ProductGrid products={sortedProducts} />
         </div>
       </section>
 
