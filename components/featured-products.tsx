@@ -11,15 +11,12 @@ import { useCart } from "@/components/cart-provider"
 import { products } from "@/lib/products/index"
 import { motion } from "framer-motion"
 import { formatPrice } from "@/lib/utils"
-
-// Modificar la función getFeaturedProducts para excluir los productos del hero
-import { getTopDiscountedProducts } from "@/components/hero"
+import { getHeroProductIds } from "@/components/hero"
 
 // Función para obtener los productos destacados, excluyendo los que aparecen en el hero
-const getFeaturedProducts = (count = 10) => {
-  // Obtenemos los productos que aparecen en el hero
-  const heroProducts = getTopDiscountedProducts(5)
-  const heroProductIds = heroProducts.map((p) => p.id)
+export const getFeaturedProducts = (count = 10) => {
+  // Obtenemos los IDs de los productos que aparecen en el hero
+  const heroProductIds = getHeroProductIds()
 
   // Primero obtenemos los productos marcados como destacados que no están en el hero
   const featured = products.filter((product) => product.featured && !heroProductIds.includes(product.id))
@@ -35,6 +32,11 @@ const getFeaturedProducts = (count = 10) => {
 
   // Si hay más de 'count' productos destacados, tomamos solo los primeros 'count'
   return featured.slice(0, count)
+}
+
+// Exportamos los IDs de los productos destacados para que otros componentes puedan evitar duplicarlos
+export const getFeaturedProductIds = () => {
+  return getFeaturedProducts().map((product) => product.id)
 }
 
 export function FeaturedProducts() {
