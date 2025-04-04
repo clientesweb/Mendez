@@ -5,7 +5,7 @@ import { Hero } from "@/components/hero"
 import { FeaturedProducts } from "@/components/featured-products"
 import { Categories } from "@/components/categories"
 import { PromoBanner } from "@/components/promo-banner"
-import { About } from "@/components/about"
+import { CategorySections } from "@/components/category-sections"
 import { Testimonials } from "@/components/testimonials"
 import { Newsletter } from "@/components/newsletter"
 import { Footer } from "@/components/footer"
@@ -30,7 +30,7 @@ export default function Home() {
       <Categories />
       <FeaturedProducts />
       <PromoBanner />
-      <About />
+      <CategorySections />
       <Testimonials />
       <Newsletter />
       <Footer />
