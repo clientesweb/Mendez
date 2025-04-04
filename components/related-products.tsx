@@ -9,6 +9,7 @@ import { useCart } from "@/components/cart-provider"
 import { formatPrice } from "@/lib/utils"
 import type { Product } from "@/lib/types"
 import { ShoppingCart, Eye, Star } from "lucide-react"
+import { useToast } from "@/components/ui/use-toast"
 
 interface RelatedProductsProps {
   products: Product[]
@@ -16,6 +17,26 @@ interface RelatedProductsProps {
 
 export function RelatedProducts({ products }: RelatedProductsProps) {
   const { addItem } = useCart()
+  const { toast } = useToast()
+
+  const handleAddToCart = (product: Product) => {
+    addItem(product)
+
+    // Mostrar notificación de producto agregado
+    toast({
+      title: "Producto agregado al carrito",
+      description: `1 x ${product.name}`,
+      action: (
+        <div className="h-16 w-16 relative mr-2 flex-shrink-0">
+          <img
+            src={product.image || "/placeholder.svg"}
+            alt={product.name}
+            className="h-full w-full object-cover rounded-md"
+          />
+        </div>
+      ),
+    })
+  }
 
   if (products.length === 0) {
     return null
@@ -51,7 +72,7 @@ export function RelatedProducts({ products }: RelatedProductsProps) {
                     <Button
                       size="icon"
                       className="rounded-full bg-white text-primary hover:bg-white/90"
-                      onClick={() => addItem(product)}
+                      onClick={() => handleAddToCart(product)}
                     >
                       <ShoppingCart className="h-4 w-4" />
                       <span className="sr-only">Agregar al carrito</span>
@@ -88,7 +109,7 @@ export function RelatedProducts({ products }: RelatedProductsProps) {
                 </div>
               </CardContent>
               <CardFooter className="p-4 pt-0 flex gap-2">
-                <Button variant="outline" className="w-full" onClick={() => addItem(product)}>
+                <Button variant="outline" className="w-full" onClick={() => handleAddToCart(product)}>
                   <ShoppingCart className="h-4 w-4 mr-2" />
                   Agregar al carrito
                 </Button>
