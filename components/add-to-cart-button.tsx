@@ -4,6 +4,7 @@ import { useState } from "react"
 import { Minus, Plus, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/components/cart-provider"
+import { useToast } from "@/components/ui/use-toast"
 import type { Product } from "@/lib/types"
 
 interface AddToCartButtonProps {
@@ -13,6 +14,7 @@ interface AddToCartButtonProps {
 export function AddToCartButton({ product }: AddToCartButtonProps) {
   const [quantity, setQuantity] = useState(1)
   const { addItem } = useCart()
+  const { toast } = useToast()
 
   const decreaseQuantity = () => {
     setQuantity((prev) => Math.max(1, prev - 1))
@@ -26,6 +28,22 @@ export function AddToCartButton({ product }: AddToCartButtonProps) {
     for (let i = 0; i < quantity; i++) {
       addItem(product)
     }
+
+    // Mostrar notificación de producto agregado
+    toast({
+      title: "Producto agregado al carrito",
+      description: `${quantity} x ${product.name}`,
+      action: (
+        <div className="h-16 w-16 relative mr-2 flex-shrink-0">
+          <img
+            src={product.image || "/placeholder.svg"}
+            alt={product.name}
+            className="h-full w-full object-cover rounded-md"
+          />
+        </div>
+      ),
+    })
+
     setQuantity(1)
   }
 
