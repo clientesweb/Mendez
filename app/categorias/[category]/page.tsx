@@ -15,7 +15,7 @@ const categoryMap: Record<string, { title: string; description: string; image: s
     title: "Muebles",
     description:
       "Explora nuestra colección de muebles de alta calidad para transformar tu hogar. Encuentra sofás, mesas, sillas y más.",
-    image: "/categories/banner-muebles.jpeg",
+    image: "/categories/muebles.jpeg",
     features: [
       "Diseños modernos y clásicos",
       "Materiales de alta calidad",
@@ -27,7 +27,7 @@ const categoryMap: Record<string, { title: string; description: string; image: s
     title: "Colchones",
     description:
       "Descubre nuestra selección de colchones, sommiers y accesorios para un descanso perfecto. Calidad y confort garantizados.",
-    image: "/categories/banner-colchones.jpeg",
+    image: "/categories/colchones.jpeg",
     features: [
       "Diferentes niveles de firmeza",
       "Tecnologías avanzadas de descanso",
@@ -39,7 +39,7 @@ const categoryMap: Record<string, { title: string; description: string; image: s
     title: "Electro",
     description:
       "Conoce nuestra línea de electrodomésticos para equipar tu hogar con la mejor tecnología y eficiencia energética.",
-    image: "/categories/banner-electro.jpeg",
+    image: "/categories/electro.jpeg",
     features: [
       "Marcas reconocidas",
       "Eficiencia energética",
