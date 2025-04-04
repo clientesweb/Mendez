@@ -2,6 +2,34 @@ import type { Product } from "@/lib/types"
 
 export const electroProducts: Product[] = [
   {
+    id: "estufa-garrafera-torpedo-950",
+    name: "Estufa Garrafera Torpedo 950 Negro",
+    description:
+      "Estufa garrafera de alta eficiencia con potencia de 1900/3800 calorías por hora, ideal para calentar ambientes de manera rápida y segura. Cuenta con válvula de seguridad, analizador atmosférico y encendido piezoeléctrico que garantizan un funcionamiento seguro. Incluye regulador de gas y cuatro ruedas giratorias que facilitan su movilidad entre diferentes espacios del hogar. Su diseño compacto y elegante en color negro se integra perfectamente a cualquier decoración. Aprobada por el IGA (Instituto del Gas Argentino), cumple con todos los estándares de seguridad requeridos.",
+    price: 211764,
+    discount: 15,
+    category: "Electro",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/205173-1200-1200-1U5iL1T6GfVebMPXoSlAst81yK5okY.jpeg",
+    featured: true,
+    specifications: {
+      Potencia: "1900/3800 calorías por hora",
+      Color: "Negro",
+      "Características de seguridad": "Válvula de seguridad, Analizador atmosférico",
+      Encendido: "Piezoeléctrico",
+      Accesorios: "Regulador de gas, Cuatro ruedas giratorias",
+      Ancho: "40 cm",
+      Alto: "69 cm",
+      Profundidad: "36 cm",
+      Certificación: "Aprobada por el IGA (Instituto del Gas Argentino)",
+      "Colores disponibles": "Variedad de colores",
+    },
+    gallery: [
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/205173-1200-1200-1U5iL1T6GfVebMPXoSlAst81yK5okY.jpeg",
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/file_000000006dd052309b5e26761f202899_conversation_id%3D67ef0454-20e4-800c-99b4-aa0bf180aed9%26message_id%3D81beb36f-e699-42ca-9dc9-31c17ca6a883.PNG-H8TTl094sxYxaQGhM9G8BC5ubgserA.png",
+    ],
+  },
+  {
     id: "heladora-yelmo-fh3300",
     name: "Heladora Yelmo FH-3300",
     description:
