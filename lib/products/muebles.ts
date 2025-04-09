@@ -36,7 +36,7 @@ export const mueblesProducts: Product[] = [
     name: "Alacena Porta Microondas 60 cm. Melamina Gabinete Cocina Blanco",
     description:
       "Alacena especialmente diseñada para colocar tu microondas de manera segura y ordenada. Con un ancho de 60 cm, este mueble de melamina en color blanco ofrece un espacio abierto con estante que se adapta perfectamente a la mayoría de los microondas del mercado. Su diseño minimalista y funcional se integra fácilmente en cualquier cocina, optimizando el espacio y manteniendo tus electrodomésticos organizados. Fácil de instalar y limpiar, esta alacena es la solución ideal para liberar espacio en tu mesada.",
-    price: 41175,
+    price: 42999,
     discount: 15,
     category: "Muebles",
     image:
@@ -62,7 +62,7 @@ export const mueblesProducts: Product[] = [
     name: "Vajillero Mosconi Doors 130 Melamina Nebraska Natural/Blanco",
     description:
       "Elegante vajillero de la línea Doors de Mosconi, con un diseño moderno que combina la calidez de la melamina Nebraska Natural con el minimalismo del blanco. Cuenta con 3 puertas batientes y 3 estantes fijos que ofrecen amplio espacio de almacenamiento para vajilla, cristalería y otros elementos del hogar. Sus 5 patas regulables garantizan estabilidad en cualquier superficie, mientras que su capacidad de carga de hasta 80 kg permite almacenar todo tipo de artículos. Ideal para comedores, livings o cocinas, este mueble combina funcionalidad y estética para complementar cualquier estilo de decoración.",
-    price: 170588,
+    price: 169999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/natural.png-SW8L5Qdm0TJNlDOigTYIJxVFR3VbNq.webp",
@@ -117,7 +117,7 @@ export const mueblesProducts: Product[] = [
     name: "Rack Tv Led Mosconi Módulo L Combinable Living Venezia",
     description:
       "Módulo TV Rack L de Mosconi, un mueble versátil y moderno que se adapta a diferentes espacios y necesidades. Fabricado en melamina sobre MDP de 15 mm, cuenta con 3 espacios abiertos para organizar equipos multimedia, consolas o elementos decorativos. Su diseño innovador permite utilizarlo tanto en forma horizontal como vertical, y puede combinarse con otras unidades para crear composiciones personalizadas. Disponible en varios colores como Blanco, Negro, Rojo, Tabaco, Venezia y Wengue, este rack es la solución perfecta para quienes buscan funcionalidad y estilo en su sala de estar.",
-    price: 52824,
+    price: 59999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/modulo1.png-Y38dQksk2aWjW006INcCo8P9Q4jbEs.webp",
@@ -142,7 +142,7 @@ export const mueblesProducts: Product[] = [
     name: "Módulo Bajo Mesada 40 cm. Express Melamina Gabinete Cocina",
     description:
       "Módulo bajo mesada de 40 cm, diseñado para integrarse perfectamente en tu cocina o ampliar las bajo mesadas existentes. A diferencia de otros modelos, cuenta con una tapa superior de melamina de 15 mm que permite utilizarlo sin necesidad de agregar mármol o acero inoxidable. Incluye un estante regulable interior que maximiza el espacio de almacenamiento y se adapta a tus necesidades. Disponible en color blanco con opción de frente en wengue, este módulo versátil es ideal tanto para cocinas como para lavaderos u otros espacios donde necesites almacenamiento adicional.",
-    price: 58822,
+    price: 54999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bajo1.png.jpg-drBfsu0WxpfOS6H5zbWTXy3xEP2kxh.jpeg",
@@ -377,7 +377,7 @@ export const mueblesProducts: Product[] = [
     name: "Mueble Zapatero Organizador De Zapatos Melamina",
     description:
       "Zapatero moderno de 3 puertas, diseñado para organizar tu calzado de manera eficiente y elegante. Con capacidad para 15 a 18 pares de zapatos (hasta talle 42), este mueble optimiza el espacio en tu hogar mientras mantiene tu calzado ordenado y protegido del polvo. Fabricado con melamina MDP de 15mm de grosor y fondo de MDF de 3mm, ofrece durabilidad y resistencia. Sus puertas tienen un sistema de apertura y cierre suave que garantiza comodidad y funcionalidad. Ideal para pasillos, dormitorios o vestidores.",
-    price: 101176,
+    price: 119999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/zapatero2.png-dvgxV1BjaPDJDPnnljaUJKTF560TaO.webp",
@@ -472,7 +472,7 @@ export const mueblesProducts: Product[] = [
     name: "Mesa De Centro Melamina Nordica Patas De Hierro",
     description:
       "Mesa de centro con diseño nórdico modelo 'Ayohuma', que combina la calidez de la melamina con la elegancia industrial de las patas de hierro tipo horquilla. Su diseño rectangular con compartimentos de almacenamiento la convierte en una pieza funcional y decorativa para cualquier sala de estar. La combinación de materiales y su acabado mate crean un mueble versátil que se adapta perfectamente a diferentes estilos de decoración.",
-    price: 88235,
+    price: 84999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mesacentro.png-tODVJy9DwW2bA3gyg2to96IFIwOdLM.webp",
@@ -501,7 +501,7 @@ export const mueblesProducts: Product[] = [
     name: "Vajillero 4 Puertas Bahiut Doors Mosconi",
     description:
       "Elegante vajillero de la línea Milenial de Mosconi, con un diseño moderno que combina funcionalidad y estética. Cuenta con 4 puertas de apertura batiente y 3 estantes fijos que ofrecen amplio espacio de almacenamiento para vajilla, cristalería y otros elementos del hogar. Disponible en diversas combinaciones de colores como Nebraska Gris con frente Blanco o Negro, Nebraska Natural con frente Blanco o Negro, y Venezia con frente Blanco. Sus 5 patas regulables de plástico negro garantizan estabilidad en cualquier superficie.",
-    price: 200000,
+    price: 209999,
     discount: 15,
     category: "Muebles",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vajillero3.png-0EwgXr8JQ8eiVUVQzTEnhqQZtkVCIx.webp",
@@ -537,7 +537,7 @@ export const mueblesProducts: Product[] = [
     name: "Escritorio De Computacion 709 Melamina Blanco - MOSCONI",
     description:
       "Escritorio de computación funcional y espacioso, ideal para estudiar o trabajar desde casa. Fabricado en melamina sobre MDP de 15 mm en color blanco, cuenta con una bandeja deslizable para teclado con correderas metálicas y una repisa con 2 estantes para organizar tus elementos de trabajo. Su diseño optimiza el espacio y es compatible con monitores de hasta 19 pulgadas. Disponible también en colores Venezia, Tabaco y Wengue para adaptarse a diferentes estilos de decoración.",
-    price: 111764,
+    price: 124999,
     discount: 15,
     category: "Muebles",
     image:
@@ -616,7 +616,7 @@ export const mueblesProducts: Product[] = [
     name: "Chifonier 5 Cajones Pack Color Chocolate",
     description:
       "Chifonier de 5 cajones con diseño funcional y elegante en color chocolate. Fabricado en MDP de 15 mm con revestimiento acrílico UV que garantiza mayor durabilidad y resistencia. Sus 5 cajones con correderas plásticas y manijas color gris plata ofrecen amplio espacio de almacenamiento para ropa y accesorios. Con una carga máxima admisible de 50 kg, este mueble combina practicidad y estética para complementar cualquier dormitorio.",
-    price: 76470,
+    price: 69999,
     discount: 15,
     category: "Muebles",
     image:
@@ -842,7 +842,7 @@ export const mueblesProducts: Product[] = [
     name: "Mesa de Luz 1 Puerta 1 Cajón",
     description:
       "Mesa de luz funcional y moderna con un cajón y una puerta, ideal para el dormitorio. Fabricada en MDP de 15 mm impreso con revestimiento acrílico UV que garantiza durabilidad y resistencia. Disponible en colores blanco y chocolate, se adapta perfectamente a cualquier estilo de decoración. Sus medidas compactas (56 cm de alto, 38 cm de ancho y 37 cm de profundidad) la hacen perfecta para espacios reducidos.",
-    price: 41175,
+    price: 39999,
     discount: 15,
     category: "Muebles",
     image: "/products/mesa-luz-chocolate.jpeg",
@@ -874,7 +874,7 @@ export const mueblesProducts: Product[] = [
     name: "Placard 2 Puertas 2 Cajones",
     description:
       "Placard funcional y espacioso con dos puertas y dos cajones, perfecto para organizar tu ropa y accesorios. Fabricado en melamina de 15 mm que garantiza durabilidad y resistencia. Disponible en colores caoba, chocolate y blanco para adaptarse a cualquier estilo de decoración. Sus dimensiones (1,81 m de alto, 0,57 m de ancho y 0,46 m de profundidad) ofrecen amplio espacio de almacenamiento sin ocupar demasiado espacio en la habitación.",
-    price: 77767,
+    price: 79999,
     discount: 10,
     category: "Muebles",
     image: "/products/placard-caoba.jpeg",
@@ -901,4 +901,3 @@ export const mueblesProducts: Product[] = [
     ],
   },
 ]
-
