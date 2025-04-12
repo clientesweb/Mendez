@@ -19,6 +19,7 @@ export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,6 +32,23 @@ export function Header() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768) // Adjust breakpoint as needed
+    }
+
+    // Set initial value
+    handleResize()
+
+    // Listen for window resize events
+    window.addEventListener("resize", handleResize)
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   const routes = [
@@ -57,118 +75,14 @@ export function Header() {
       }`}
     >
       <div className="container flex h-16 md:h-20 items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative overflow-hidden rounded-full">
-            <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-              <Image
-                src="/logo.png"
-                alt="Mendez Muebles & Hogar"
-                width={50}
-                height={50}
-                className="h-10 md:h-12 w-auto object-contain transition-transform"
-              />
-            </motion.div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-playfair text-lg md:text-xl font-medium tracking-tight group-hover:text-primary transition-colors">
-              MENDEZ
-            </span>
-            <span className="text-[10px] md:text-xs text-muted-foreground">MUEBLES & HOGAR</span>
-          </div>
-        </Link>
-
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {routes.map((route) => (
-            <div key={route.href} className="relative group">
-              {route.hasSubmenu ? (
-                <>
-                  <button
-                    className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
-                      pathname.includes(route.href) ? "text-primary" : "text-muted-foreground"
-                    }`}
-                    onClick={() => setOpenSubmenu(openSubmenu === route.href ? null : route.href)}
-                    aria-expanded={openSubmenu === route.href}
-                    aria-haspopup="true"
-                  >
-                    {route.label}
-                    <ChevronDown
-                      className={`h-4 w-4 transition-transform ${openSubmenu === route.href ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {openSubmenu === route.href && (
-                    <div className="absolute top-full left-0 mt-1 w-48 bg-background shadow-md rounded-md overflow-hidden z-50">
-                      {route.submenu?.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-primary transition-colors"
-                          onClick={() => setOpenSubmenu(null)}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link
-                  href={route.href}
-                  className={`relative text-sm font-medium transition-colors hover:text-primary ${
-                    pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  {route.label}
-                  {(pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))) && (
-                    <motion.span
-                      className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary"
-                      layoutId="underline"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
-                </Link>
-              )}
-            </div>
-          ))}
-        </nav>
-
-        <div className="flex items-center gap-2 md:gap-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="hidden md:flex hover:bg-secondary transition-colors"
-            onClick={() => setIsSearchOpen(!isSearchOpen)}
-            aria-label="Buscar productos"
-          >
-            <Search className="h-5 w-5" />
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative hover:bg-secondary transition-colors"
-            onClick={() => setIsCartOpen(true)}
-            aria-label={`Ver carrito con ${items.length} productos`}
-          >
-            <ShoppingCart className="h-5 w-5" />
-            {items.length > 0 && (
-              <motion.span
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground"
-              >
-                {items.length}
-              </motion.span>
-            )}
-          </Button>
-
+        {/* En móvil: Menú a la izquierda, Logo en el centro, Carrito a la derecha */}
+        <div className="flex items-center md:hidden">
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden hover:bg-secondary transition-colors"
+                className="hover:bg-secondary transition-colors"
                 aria-label="Abrir menú"
               >
                 <Menu className="h-5 w-5" />
@@ -256,6 +170,128 @@ export function Header() {
             </SheetContent>
           </Sheet>
         </div>
+
+        {/* Logo - Centrado en móvil, a la izquierda en desktop */}
+        <div className={`flex items-center gap-2 group ${isMobile ? "absolute left-1/2 -translate-x-1/2" : ""}`}>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative overflow-hidden rounded-full">
+              <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Image
+                  src="/logo.png"
+                  alt="Mendez Muebles & Hogar"
+                  width={50}
+                  height={50}
+                  className="h-10 md:h-12 w-auto object-contain transition-transform"
+                />
+              </motion.div>
+            </div>
+            <div className="flex flex-col">
+              <span className="font-playfair text-lg md:text-xl font-medium tracking-tight group-hover:text-primary transition-colors">
+                MENDEZ
+              </span>
+              <span className="text-[10px] md:text-xs text-muted-foreground">MUEBLES & HOGAR</span>
+            </div>
+          </Link>
+        </div>
+
+        {/* Navegación - Solo visible en desktop */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {routes.map((route) => (
+            <div key={route.href} className="relative group">
+              {route.hasSubmenu ? (
+                <>
+                  <button
+                    className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                      pathname.includes(route.href) ? "text-primary" : "text-muted-foreground"
+                    }`}
+                    onClick={() => setOpenSubmenu(openSubmenu === route.href ? null : route.href)}
+                    aria-expanded={openSubmenu === route.href}
+                    aria-haspopup="true"
+                  >
+                    {route.label}
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform ${openSubmenu === route.href ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                  {openSubmenu === route.href && (
+                    <div className="absolute top-full left-0 mt-1 w-48 bg-background shadow-md rounded-md overflow-hidden z-50">
+                      {route.submenu?.map((subItem) => (
+                        <Link
+                          key={subItem.href}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-primary transition-colors"
+                          onClick={() => setOpenSubmenu(null)}
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={route.href}
+                  className={`relative text-sm font-medium transition-colors hover:text-primary ${
+                    pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))
+                      ? "text-primary"
+                      : "text-muted-foreground"
+                  }`}
+                >
+                  {route.label}
+                  {(pathname === route.href || (route.href !== "/" && pathname.startsWith(route.href))) && (
+                    <motion.span
+                      className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary"
+                      layoutId="underline"
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </Link>
+              )}
+            </div>
+          ))}
+        </nav>
+
+        {/* Botones de acción - Carrito a la derecha en móvil */}
+        <div className="flex items-center gap-2 md:gap-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden md:flex hover:bg-secondary transition-colors"
+            onClick={() => setIsSearchOpen(!isSearchOpen)}
+            aria-label="Buscar productos"
+          >
+            <Search className="h-5 w-5" />
+          </Button>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative hover:bg-secondary transition-colors"
+            onClick={() => setIsCartOpen(true)}
+            aria-label={`Ver carrito con ${items.length} productos`}
+          >
+            <ShoppingCart className="h-5 w-5" />
+            {items.length > 0 && (
+              <motion.span
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-medium text-primary-foreground"
+              >
+                {items.length}
+              </motion.span>
+            )}
+          </Button>
+
+          {/* Menú hamburguesa - Solo visible en desktop */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="hidden lg:flex hover:bg-secondary transition-colors"
+            aria-label="Abrir menú"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
 
       {isSearchOpen && (
@@ -284,4 +320,3 @@ export function Header() {
     </header>
   )
 }
-
