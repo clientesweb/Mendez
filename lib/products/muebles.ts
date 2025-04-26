@@ -874,8 +874,8 @@ export const mueblesProducts: Product[] = [
     name: "Placard 2 Puertas 2 Cajones",
     description:
       "Placard funcional y espacioso con dos puertas y dos cajones, perfecto para organizar tu ropa y accesorios. Fabricado en melamina de 15 mm que garantiza durabilidad y resistencia. Disponible en colores caoba, chocolate y blanco para adaptarse a cualquier estilo de decoración. Sus dimensiones (1,81 m de alto, 0,57 m de ancho y 0,46 m de profundidad) ofrecen amplio espacio de almacenamiento sin ocupar demasiado espacio en la habitación.",
-    price: 88888,
-    discount: 10,
+    price: 81248,75,
+    discount: 20,
     category: "Muebles",
     image: "/products/placard-caoba.jpeg",
     featured: true,
